@@ -5,6 +5,11 @@ var Disclosure = function(el) {
   self.details = el.querySelectorAll('[data-details]');
   self.overlay = el.querySelector('[data-overlay]');
   self.el.addEventListener('click', function(e) { self.toggle(e) });
+
+  if (self.overlay) {
+    self.overlay.addEventListener('click', function(e) { self.toggle(e) });
+  }
+
   self.hide();
 };
 
