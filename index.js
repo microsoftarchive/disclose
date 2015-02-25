@@ -3,27 +3,30 @@ var Disclosure = function(el) {
   self.el = el;
   self.isActive = false;
   self.details = el.querySelectorAll('[data-details]');
-  self.overlay = el.querySelector('[data-overlay]');
-  self.el.addEventListener('click', function(e) { self.toggle(e) });
 
-  if (self.overlay) {
-    self.overlay.addEventListener('click', function(e) { self.toggle(e) });
-  }
+  self.overlay = document.createElement('div');
+  self.overlay.style.position = 'fixed';
+  self.overlay.style.top = '0';
+  self.overlay.style.right = '0';
+  self.overlay.style.bottom = '0';
+  self.overlay.style.left = '0';
+  self.el.insertBefore(self.overlay, self.el.firstChild);
+
+  self.el.addEventListener('click', function(e) { self.toggle(e) });
+  self.overlay.addEventListener('click', function(e) { self.toggle(e) });
 
   self.hide();
 };
 
 Disclosure.prototype.hide = function() {
-  if (self.overlay) { self.overlay.style.display = 'none'; }
-
+  self.overlay.style.display = 'none';
   for (var i = 0; i < this.details.length; i++) {
     this.details[i].style.display = 'none';
   }
 };
 
 Disclosure.prototype.show = function() {
-  if (self.overlay) { self.overlay.style.display = 'block'; }
-
+  self.overlay.style.display = 'block';
   for (var i = 0; i < this.details.length; i++) {
     this.details[i].style.display = 'block';
   }
