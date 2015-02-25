@@ -3,7 +3,7 @@ var Disclosure = function(el) {
   self.el = el;
   self.isActive = false;
   self.details = el.querySelectorAll('[data-details]');
-  el.addEventListener('click', function(e) { self.toggle(e) });
+  self.el.addEventListener('click', function(e) { self.toggle(e) });
   self.hide();
 };
 
@@ -14,7 +14,7 @@ Disclosure.prototype.hide = function() {
 };
 
 Disclosure.prototype.show = function() {
-  for (var i = 0; i < el.details.length; i++) {
+  for (var i = 0; i < this.details.length; i++) {
     this.details[i].style.display = 'block';
   }
 };
