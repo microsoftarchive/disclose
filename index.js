@@ -25,6 +25,14 @@ Disclosure.prototype.toggle = function(e) {
   if (this.isActive) { this.show() } else { this.hide() }
 };
 
-module.exports = function(el) {
-  return new Disclosure(el);
+module.exports = {
+  create: function(el) {
+    return new Disclosure(el);
+  },
+  all: function() {
+    var els = document.querySelectorAll("[data-disclose]");
+    for (var i = 0; i < els.length; i++) {
+      new Disclosure(els[i]);
+    }
+  }
 };
