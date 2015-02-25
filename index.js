@@ -19,14 +19,14 @@ var Disclosure = function(el) {
 };
 
 Disclosure.prototype.hide = function() {
-  self.overlay.style.display = 'none';
+  this.overlay.style.display = 'none';
   for (var i = 0; i < this.details.length; i++) {
     this.details[i].style.display = 'none';
   }
 };
 
 Disclosure.prototype.show = function() {
-  self.overlay.style.display = 'block';
+  this.overlay.style.display = 'block';
   for (var i = 0; i < this.details.length; i++) {
     this.details[i].style.display = 'block';
   }
