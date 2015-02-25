@@ -13,7 +13,11 @@ var Disclosure = function(el) {
   self.el.insertBefore(self.overlay, self.el.firstChild);
 
   self.el.addEventListener('click', function(e) { self.toggle(e) });
-  self.overlay.addEventListener('click', function(e) { self.toggle(e) });
+  self.overlay.addEventListener('click', function(e) { self.hide(e) });
+
+  for(var i = 0; i < self.details.length; i++) {
+    self.details[i].addEventListener('click', function(e) { e.stopPropagation() });
+  }
 
   self.hide();
 };
