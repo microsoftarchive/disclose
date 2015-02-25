@@ -1,0 +1,11 @@
+{
+  "name": "disclose",
+  "version": "1.0.0",
+  "description": "Toggle details in the dom.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "MIT"
+}
