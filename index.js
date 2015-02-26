@@ -14,8 +14,10 @@ var Disclosure = function(el) {
 
   self.el.addEventListener('click', function(e) { self.toggle(e) });
   self.overlay.addEventListener('click', function(e) { self.hide(e) });
+  self.overlay.style.zIndex = '998';
 
   for(var i = 0; i < self.details.length; i++) {
+    self.details[i].style.zIndex = '999';
     self.details[i].addEventListener('click', function(e) { e.stopPropagation() });
   }
 
